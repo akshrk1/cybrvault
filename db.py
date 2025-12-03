@@ -1,8 +1,9 @@
 import mysql.connector
+import streamlit as st
 from mysql.connector import Error
 import hashlib
 
-DB_NAME = "cybrvault"
+DB_NAME = "railway"
 
 def get_db_connection(create_db=False):
     import mysql.connector
@@ -10,9 +11,10 @@ def get_db_connection(create_db=False):
     if create_db:
         # Connect without database first
         conn = mysql.connector.connect(
-            host="127.0.0.1",
-            user="YOURUSERNAME",
-            password="YOURPASSWORD"
+            host="tramway.proxy.rlwy.net",
+            port=13359,
+            user="root",
+            password="uIFvZQyimbghigbQOZOQZkGFampbOehe"
         )
         cursor = conn.cursor()
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
@@ -22,9 +24,10 @@ def get_db_connection(create_db=False):
 
     # Connect to the actual database
     return mysql.connector.connect(
-        host="127.0.0.1",
-        user="YOURUSERNAME",
-        password="YOURPASSWORD",
+        host="tramway.proxy.rlwy.net",
+        port=13359,
+        user="root",
+        password="uIFvZQyimbghigbQOZOQZkGFampbOehe",
         database=DB_NAME
     )
 
