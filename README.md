@@ -1,8 +1,11 @@
-# CybrVault Local
-**Secure File Encryption & Storage — Locally Powered, Streamlit-Based**
+# CybrVault Web
+**Secure File Encryption & Storage — Cloud-Ready, Streamlit-Based**
 
 CybrVault is a lightweight Python + Streamlit project that lets users securely **upload, encrypt, and decrypt** files of any format.  
-Each file’s encryption key is stored safely in a **MySQL database**, mapped to the user account that owns it.
+Each file’s encryption key is stored safely in a **MySQL database**, mapped to the user account that owns it.  
+Files are stored on the cloud platform **Railway**.
+
+Access the live app here: [https://cybrvault.streamlit.app](https://cybrvault.streamlit.app)
 
 ---
 
@@ -12,7 +15,8 @@ Each file’s encryption key is stored safely in a **MySQL database**, mapped to
 - **Per-user encryption keys** stored in a MySQL database
 - **Fernet symmetric encryption** (via the `cryptography` library)
 - **Decrypt & download** your files safely
-- **Local-first privacy** — nothing leaves your machine
+- **Cloud-enabled deployment** — host the app and database online
+- **Optional local storage** — files can still be stored on the server if you prefer
 
 ---
 
@@ -20,28 +24,7 @@ Each file’s encryption key is stored safely in a **MySQL database**, mapped to
 | Component | Technology |
 |------------|-------------|
 | UI | [Streamlit](https://streamlit.io) |
-| Database | MySQL |
+| Database | MySQL (Railway's implementation) |
 | Encryption | Python `cryptography.fernet` |
 | Auth | Basic username/password (SHA256) |
 | Language | Python 3.10+ |
-
----
-
-## Installation
-
-### Clone this repository
-```bash
-git clone https://github.com/yourusername/cybrvault.git
-cd cybrvault
-python -m venv .venv
-source .venv/bin/activate     # On Linux/macOS
-.venv\Scripts\activate        # On Windows
-pip install -r requirements.txt
-```
-Make sure that MySQL has been properly configured in your system.
-Edit the db.py file to match your MySQL credentials.
-
-Run the app by running:
-```bash
-streamlit run app.py
-```
